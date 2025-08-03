@@ -1,4 +1,5 @@
 amnestyCHS/amnestyCHS/.env
+amnestyCHS/amnestyCHS/settings.py
 
 env/
 *.sqlite3
