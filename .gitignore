@@ -1,0 +1,13 @@
+amnestyCHS/amnestyCHS/.env
+
+env/
+*.sqlite3
+**/__pycache__/
+**/migrations/
+
+
+amnestyCHS/static/
+amnestyCHS/staticfiles/
+amnestyCHS/media/
+
+*.log
