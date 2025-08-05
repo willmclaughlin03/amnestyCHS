@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from .forms import EventForm
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import PermissionDenied
+from django.db import IntegrityError
+from django.core.paginator import EmptyPage, PageNotAnInteger
 # Create your views here.
  
   
@@ -38,6 +40,12 @@ class EventListView(ListView):
     context_object_name = 'event_list'
     paginate_by = 5
     ordering_by = ['-date']  # responsible for pagination and ordering of the events
+
+    def get(self, request, *args, **kwargs):
+        try:
+            return super().get(request, *args, **kwargs)
+        except(EmptyPage, PageNotAnInteger):
+            return redirect('event_list')
     
 class EventDetailView(DetailView): 
     model  = Event 

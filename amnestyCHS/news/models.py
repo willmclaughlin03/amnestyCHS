@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 class News(models.Model):
     title = models.CharField(max_length=255)
-    slug = models.SlugField(unique = True, bland = True) # Slug field for URL
+    slug = models.SlugField(unique = True, blank = True) # Slug field for URL
     content = models.TextField()
     published_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
